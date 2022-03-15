@@ -2,7 +2,7 @@ package com.lispinterpreter;
 
 public class SimpleLinkedList<E> extends AbstractList<E> {
     protected int count;
-    protected Node<E> head;
+    protected Nodo<E> head;
     public SimpleLinkedList() {
 
     }
@@ -14,7 +14,7 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
 
     @Override
     public void addFirst(E value) {
-        head = new Node<E>(value, head);
+        head = new Nodo<E>(value, head);
         count ++;
     }
 
@@ -25,7 +25,7 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
 
     @Override
     public E getLast() {
-        Node<E> tempNode = head;
+        Nodo<E> tempNode = head;
         if (isEmpty()) return  null;    // The list should not be empty
         // Look for the last element
         while (tempNode.next() != null) {
@@ -37,7 +37,7 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
     @Override
     public E removeFirst() {
         if (isEmpty()) return null;   // The list should not be empty
-        Node<E> tempNode = head;    // Get the Node that is currently the head
+        Nodo<E> tempNode = head;    // Get the Node that is currently the head
         head = tempNode.next(); // Head is going to be the next node
         count--;
         return tempNode.value();
@@ -46,8 +46,8 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
     @Override
     public E remove() {
         // Declare variables to save the references
-        Node<E> finger = head;
-        Node<E> previous = null;
+        Nodo<E> finger = head;
+        Nodo<E> previous = null;
         if (isEmpty()) return null; // The list should not be empty
         while(finger.next() != null) {
             previous = finger;
@@ -65,9 +65,9 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
 
     @Override
     public void add(E value) {
-        Node<E> tempNode = new Node<E>(value); // Create the new node
+        Nodo<E> tempNode = new Nodo<E>(value); // Create the new node
         if (!isEmpty()) {
-            Node<E> finger = head;
+            Nodo<E> finger = head;
             // Find the last element
             while (finger.next() != null) {
                 finger = finger.next();

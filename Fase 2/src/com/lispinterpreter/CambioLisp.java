@@ -3,13 +3,13 @@ package com.lispinterpreter;
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public final class LispParser {
+public final class CambioLisp {
 
-    private static ArrayList<Node> parsedProgram = new ArrayList<Node>();
+    private static ArrayList<Nodo> parsedProgram = new ArrayList<Nodo>();
 
 
     /** Method to separate the program as an Array List */
-    public static ArrayList<Node> separator(String program) {
+    public static ArrayList<Nodo> separator(String program) {
         String[] programa= program.split(" ");
         ArrayList<String> tokensList= new ArrayList(Arrays.asList(programa));
         return parseProgram(tokensList);
@@ -21,20 +21,20 @@ public final class LispParser {
      * @param separatedProgram
      * @return
      */
-    public static ArrayList<Node> parseProgram(ArrayList<String> separatedProgram) {
-        ArrayList<Node> parsedProgram = new ArrayList<>();
+    public static ArrayList<Nodo> parseProgram(ArrayList<String> separatedProgram) {
+        ArrayList<Nodo> parsedProgram = new ArrayList<>();
         while(!separatedProgram.isEmpty()) {
-            Node node;
+            Nodo node;
             String t = separatedProgram.remove(0);
             if (t.equals("(")) {
-                node = new Node(parseProgram(separatedProgram));
+                node = new Nodo(parseProgram(separatedProgram));
                 parsedProgram.add(node);
             } else if (t.equals(")")) {
                 return parsedProgram;
             } else if (isNumber(t)) {
-                parsedProgram.add(new Node(Float.parseFloat(t)));
+                parsedProgram.add(new Nodo(Float.parseFloat(t)));
             } else {
-                parsedProgram.add(new Node(t));
+                parsedProgram.add(new Nodo(t));
             }
         }
         return parsedProgram;

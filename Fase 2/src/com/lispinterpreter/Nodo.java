@@ -1,30 +1,30 @@
 package com.lispinterpreter;
 import java.util.ArrayList;
 
-public class Node<E> {
+public class Nodo<E> {
     protected float dataF;
     protected String dataS;
-    protected ArrayList<Node> lista;
+    protected ArrayList<Nodo> lista;
     protected int tipo;
     protected E data;   // Store the node data
 
 
 
-    protected Node<E> nextElement; // Store a reference to the next element
+    protected Nodo<E> nextElement; // Store a reference to the next element
 
-    public Node(float v)
+    public Nodo(float v)
     {
         dataF = v;
         tipo = 1;
     }
 
-    public Node(String v)
+    public Nodo(String v)
     {
         dataS =v;
         tipo = 2;
     }
 
-    public Node(ArrayList<Node> v)
+    public Nodo(ArrayList<Nodo> v)
     {
         lista = v;
         tipo = 3;
@@ -36,7 +36,7 @@ public class Node<E> {
      * @param data
      * @param nextElement
      */
-    public Node(E data, Node<E> nextElement) {
+    public Nodo(E data, Nodo<E> nextElement) {
         this.data = data;
         this.nextElement = nextElement;
     }
@@ -45,7 +45,7 @@ public class Node<E> {
      * Create a Node with only the data (nextElement is null).
      * @param data
      */
-    public Node(E data) {
+    public Nodo(E data) {
         this(data, null);
     }
 
@@ -53,13 +53,13 @@ public class Node<E> {
      * Get the next Node
      * @return
      */
-    public Node<E> next() {return this.nextElement;}
+    public Nodo<E> next() {return this.nextElement;}
 
     /**
      * Set the next node
      * @param next
      */
-    public void setNext(Node<E> next) {
+    public void setNext(Nodo<E> next) {
         this.nextElement = next;
     }
 
