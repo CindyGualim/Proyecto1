@@ -21,7 +21,7 @@ public class Main {
             }
 
             // guardar en arraylist
-            ArrayList<Node> tokenList = LispParser.separator(archivo);
+            ArrayList<Nodo> tokenList = CambioLisp.separator(archivo);
 
             // 
             printTokens(tokenList, 0);
@@ -32,10 +32,10 @@ public class Main {
         }
 
     }
-    public static void printTokens(ArrayList<Node> tokens, int tabs) {
+    public static void printTokens(ArrayList<Nodo> tokens, int tabs) {
 
         while (!tokens.isEmpty()) {
-            Node n = tokens.remove(0);
+            Nodo n = tokens.remove(0);
             if (n.tipo == 1) {
                 for (int i = 0; i < tabs; i++) {
                     System.out.print("  ");
