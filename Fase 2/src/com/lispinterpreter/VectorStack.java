@@ -1,8 +1,17 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+ //import
 import java.util.Vector;
 
-public class VectorStack<E> implements Stack<E> {
+/**la clase vector  */
+public class VectorStack<E> implements Stack<E> { //se implementa la interfaz del stack
 
     Vector<E> data;
 

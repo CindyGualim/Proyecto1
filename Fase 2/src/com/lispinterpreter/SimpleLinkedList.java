@@ -9,8 +9,10 @@ package com.lispinterpreter;
 
  /*Clase de lista  */
 public class SimpleLinkedList<E> extends AbstractList<E> {
-    protected int count;
+    protected int contador;
     protected Nodo<E> head;
+    protected Nodo<E> nodo;
+
     public SimpleLinkedList() {
 
     }
@@ -20,13 +22,13 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
      */
     @Override
     public int size() {
-        return count;   
+        return contador;   
     }
 
     @Override
     public void addFirst(E value) {
         head = new Nodo<E>(value, head);
-        count ++;
+        contador ++;
     }
 
     @Override
@@ -36,60 +38,58 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
 
     @Override
     public E getLast() {
-        Nodo<E> tempNode = head;
-        if (isEmpty()) return  null;    // The list should not be empty
-        // Look for the last element
-        while (tempNode.next() != null) {
-            tempNode = tempNode.next();
+        nodo = head;
+        if (isEmpty()) return  null;    
+        while (nodo.next() != null) {
+            nodo = nodo.next();
         }
-        return tempNode.value();    // Return the last value
+        return nodo.value();    
     }
 
     @Override
     public E removeFirst() {
-        if (isEmpty()) return null;   // The list should not be empty
-        Nodo<E> tempNode = head;    // Get the Node that is currently the head
-        head = tempNode.next(); // Head is going to be the next node
-        count--;
-        return tempNode.value();
+        if (isEmpty()) 
+            return null;   
+        nodo = head;   
+        head = nodo.next(); 
+        contador--;
+        return nodo.value();
     }
 
     @Override
     public E remove() {
-        // Declare variables to save the references
-        Nodo<E> finger = head;
-        Nodo<E> previous = null;
-        if (isEmpty()) return null; // The list should not be empty
-        while(finger.next() != null) {
-            previous = finger;
-            finger = finger.next();
+        Nodo<E> j = head;
+        Nodo<E> anterior = null;
+        if (isEmpty()) return null; 
+        while(j.next() != null) {
+            anterior = j;
+            j = j.next();
         }
-        // If the previous is null, the list is going to be empty
-        if (previous == null) {
+        
+        if (anterior == null) {
             head = null;
         } else {
-            previous.setNext(null); // Drop the reference to the last Node
+            anterior.setNext(null); 
         }
-        count --;
-        return finger.value();
+        contador --;
+        return j.value();
     }
 
     @Override
     public void add(E value) {
-        Nodo<E> tempNode = new Nodo<E>(value); // Create the new node
+        nodo = new Nodo<E>(value); 
         if (!isEmpty()) {
             Nodo<E> finger = head;
-            // Find the last element
             while (finger.next() != null) {
                 finger = finger.next();
             }
-            // Add that element to the list
-            finger.setNext(tempNode);
+            
+            finger.setNext(nodo);
         } else {
-            // Adding a first element to the list
-            head = tempNode;
+            
+            head = nodo;
         }
-        // Increment the count
-        count ++;
+        
+        contador ++;
     }
 }

@@ -1,37 +1,44 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
 /**
- * Defines all the methods that a Stack should have.
- * @param <E> Type of the items stored on the Stack. Example: String
+ * Clase de interfaz stack
+ * @param <E> 
  */
 public interface Stack<E> {
-    /**
-     * Add an item to the stack. Will be popped next.
+    /** 
+     * agregar item
      * @param item
      */
     public void add(E item);
 
     /**
-     * If the Stack is not empty, the most recent item will be removed and returned.
+     * eliminar el ultimo elemento
      * @return Item
      */
     public E remove();
 
     /**
-     * Get the current Item on the Stack (without popping it).
+     * get el ultimo elemento del stack
      * @return Item
      */
     public E peek();
 
     /**
      * Check if the Stack is empty.
-     * @return Boolean indicating if the Stack is empty
+     * @return Boolean 
      */
     public boolean empty();
 
     /**
-     * Get the size of the Stack.
-     * @return Integer indicating the size of the Stack
+     * obtener el tamaño del stack
+     * @return int
      */
     public int size();
 }
