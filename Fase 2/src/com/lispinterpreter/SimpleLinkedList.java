@@ -1,5 +1,13 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+ /*Clase de lista  */
 public class SimpleLinkedList<E> extends AbstractList<E> {
     protected int count;
     protected Nodo<E> head;
@@ -7,9 +15,12 @@ public class SimpleLinkedList<E> extends AbstractList<E> {
 
     }
 
+    /**
+     * override de la clase abstractlist tamaño y regresa el conteo 
+     */
     @Override
     public int size() {
-        return count;   // Return the count of the list
+        return count;   
     }
 
     @Override

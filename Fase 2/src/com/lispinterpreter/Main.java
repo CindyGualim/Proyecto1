@@ -21,10 +21,10 @@ public class Main {
             }
 
             // guardar en arraylist
-            ArrayList<Nodo> tokenList = CambioLisp.separator(archivo);
+            ArrayList<Nodo> tokens = CambioLisp.separator(archivo);
 
             // 
-            printTokens(tokenList, 0);
+            printTokens(tokens, 0);
             // Imprimir 
 
         } catch (Exception e) {
@@ -47,7 +47,7 @@ public class Main {
                 }
                 System.out.printf("%s \n", n.dataS);
             } else if (n.tipo == 3) {
-                printTokens(n.lista, tabs + 2);
+                printTokens(n.lista, tabs);
             }
         }
     }
