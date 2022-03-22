@@ -1,13 +1,29 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y estructuras de datos 
+ * @author Diana Díaz 21066
+ * @author Cindy Gualim 21226
+ * @author Andres Chivalan 21534
+ * @version 1.0 22/03/2022
+ */
+
+
+ //imports
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Stack;
 
 /**
  * @author Cindy Gualim
- *
+ *es la clase que maneja las operaciones aritmeticas
  */
 public class ArithmeticCalculator {
 
+    /**
+     * calcular
+     * @param prefixList
+     * @return peek
+     */
     public Double calculate(List<Object> prefixList) {
 
         Stack<Double> result = new Stack<>();
@@ -22,6 +38,7 @@ public class ArithmeticCalculator {
             }
         }
 
+        //si hace match con el simbolo
         if (signo.matches("[+]")) {
             result.push(sumar(result));
         }
@@ -38,7 +55,12 @@ public class ArithmeticCalculator {
         return result.peek();
     }
 
-    // suma
+    
+    /**
+     * suma
+     * @param value
+     * @return respuesta de suma
+     */
     public double sumar(Stack<Double> value) {
 
         double res = 0.00;
@@ -49,7 +71,12 @@ public class ArithmeticCalculator {
         return res;
     }
 
-    // resta
+    
+    /**
+     * resta 
+     * @param value
+     * @return respuesta de resta
+     */
     public double restar(Stack<Double> value) {
         Stack<Double> temp_stack = revertStack(value);
         double res = temp_stack.pop();
@@ -61,7 +88,12 @@ public class ArithmeticCalculator {
         return res;
     }
 
-    // multiplicar
+    
+    /**
+     * multiplicación
+     * @param value
+     * @return respuesta de multiplciacaión
+     */
     public double multiplicar(Stack<Double> value) {
         double res = value.pop();
         int lenstack = value.size();
@@ -71,7 +103,12 @@ public class ArithmeticCalculator {
         return res;
     }
 
-    // dividir
+    
+    /**
+     * dividir
+     * @param value
+     * @return respuesta de división
+     */
     public double dividir(Stack<Double> value) {
 
         Stack<Double> temp_stack = revertStack(value);
@@ -86,6 +123,11 @@ public class ArithmeticCalculator {
         return res;
     }
 
+    /**
+     * 
+     * @param value
+     * @return stack
+     */
     public Stack<Double> revertStack(Stack<Double> value) {
         Stack<Double> temp_stack = new Stack();
         while (!value.empty()) {

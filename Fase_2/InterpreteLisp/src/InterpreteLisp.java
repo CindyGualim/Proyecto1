@@ -1,11 +1,20 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y estructuras de datos 
+ * @author Diana Díaz 21066
+ * @author Cindy Gualim 21226
+ * @author Andres Chivalan 21534
+ * @version 1.0 22/03/2022
+ */
 
+//imports
 import javax.sound.midi.Soundbank;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 import java.util.stream.Collectors;
 
-
+//es la clase mai
 public class InterpreteLisp {
 
     final static String DELIMITADOR = " \t\n\r\f";
@@ -17,6 +26,7 @@ public class InterpreteLisp {
         try {
             while (true) {
 
+                //menu 
                 System.out.println("\n\t\tMENÚ");
                 System.out.println("\n\t 1) Ejecutar");
                 System.out.println("\n\t 2) Salir");
@@ -24,6 +34,7 @@ public class InterpreteLisp {
                 System.out.print("Ingrese la opción: ");
                 opcion = Keyboard.readInt();
 
+                //para cada opcion
                 switch (opcion) {
                     case 1:
                         String path = "";
@@ -50,12 +61,17 @@ public class InterpreteLisp {
                 }
 
             }
-        } catch (Exception e) {
+        } catch (Exception e) { //manejo de errores
             System.out.println(String.format("\n\n\t\tOcurrio el problema: %s", e.toString()));
         }
 
     }
 
+    /**
+     * para correr lisp
+     * @param value
+     * @throws Exception
+     */
     public static void runLisp(Object value) throws Exception {
         try {
 
@@ -157,6 +173,11 @@ public class InterpreteLisp {
         }
     }
 
+    /**
+     * pasar la lista a un string
+     * @param value
+     * @return
+     */
     public static String listToString(List value) {
         String tempSIns = "";
 
