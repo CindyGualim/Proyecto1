@@ -1,5 +1,3 @@
-import javafx.beans.property.adapter.ReadOnlyJavaBeanBooleanProperty;
-
 import java.util.ArrayList;
 import java.util.List;
 

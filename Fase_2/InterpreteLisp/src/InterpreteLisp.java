@@ -18,8 +18,8 @@ public class InterpreteLisp {
             while (true) {
 
                 System.out.println("\n\t\tMENÚ");
-                System.out.println("\n\t\1) Ejecutar");
-                System.out.println("\n\t\2) Salir");
+                System.out.println("\n\t 1) Ejecutar");
+                System.out.println("\n\t 2) Salir");
 
                 System.out.print("Ingrese la opción: ");
                 opcion = Keyboard.readInt();
