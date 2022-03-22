@@ -1,0 +1,4 @@
+(defun FTOC(TEMP)
+	(/ 8.36 (- TEMP 2)))
+
+(FTOC 84)
