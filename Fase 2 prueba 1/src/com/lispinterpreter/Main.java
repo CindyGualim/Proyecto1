@@ -1,9 +1,18 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+ //imports
 import java.io.File;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+/*la clase pricnipal del programa */
 public class Main {
 
     public static void main(String[] args) {
@@ -21,10 +30,10 @@ public class Main {
             }
 
             // guardar en arraylist
-            ArrayList<Nodo> tokenList = CambioLisp.separator(archivo);
+            ArrayList<Nodo> tokens = CambioLisp.separator(archivo);
 
             // 
-            printTokens(tokenList, 0);
+            printTokens(tokens, 0);
             // Imprimir 
 
         } catch (Exception e) {
@@ -32,22 +41,27 @@ public class Main {
         }
 
     }
-    public static void printTokens(ArrayList<Nodo> tokens, int tabs) {
+    /**
+     * imprime los tokens del programa
+     * @param tokens
+     * @param tabs
+     */
+    public static void printTokens(ArrayList<Nodo> tokens, int f) {
 
         while (!tokens.isEmpty()) {
             Nodo n = tokens.remove(0);
             if (n.tipo == 1) {
-                for (int i = 0; i < tabs; i++) {
+                for (int i = 0; i < f; i++) {
                     System.out.print("  ");
                 }
                 System.out.printf("%f \n", n.dataF);
             } else if (n.tipo == 2) {
-                for (int i = 0; i < tabs; i++) {
+                for (int i = 0; i < f; i++) {
                     System.out.print("  ");
                 }
                 System.out.printf("%s \n", n.dataS);
             } else if (n.tipo == 3) {
-                printTokens(n.lista, tabs + 2);
+                printTokens(n.lista, f);
             }
         }
     }

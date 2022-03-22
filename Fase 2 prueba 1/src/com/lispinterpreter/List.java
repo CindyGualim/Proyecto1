@@ -1,50 +1,58 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+ /*interface */
 public interface List<E> {
     /**
-     * Obtain the size of the list
+     * tamaño
      * @return
      */
     public int size();
 
     /**
-     * Obtains a boolean indicating if the list is empty or not
+     * verificar si está vacio 
      * @return
      */
     public boolean isEmpty();
 
     /**
-     * Attempts to add an item at the beginning of the List
+     * agregar al pricnipio
      * @param value
      */
     public void addFirst(E value);
 
     /**
-     * Gets the first element of the list
+     * el primer elemento de la lista
      * @return
      */
     public E getFirst();
 
     /**
-     * Gets the last element of the list
+     * utlimo elemento de la lista
      * @return
      */
     public E getLast();
 
     /**
-     * Removes the first element of the list
+     * quitar el primer elemento de la lista
      * @return
      */
     public E removeFirst();
 
     /**
-     * Removes the last element of the list
+     * quita elementos de la lista
      * @return
      */
     public E remove();
 
     /**
-     * Adds an item at the end of the list
+     * agregar elementos 
      * @param value
      */
     public void add(E value);

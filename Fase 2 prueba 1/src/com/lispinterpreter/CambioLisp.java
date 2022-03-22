@@ -1,48 +1,57 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+ //imports
 import java.util.ArrayList;
 import java.util.Arrays;
 
-public final class CambioLisp {
+/* clase donde se pasa a lisp */
+public class CambioLisp {
 
-    private static ArrayList<Nodo> parsedProgram = new ArrayList<Nodo>();
+    private ArrayList<Nodo> parsedProgram = new ArrayList<Nodo>();
 
 
-    /** Method to separate the program as an Array List */
-    public static ArrayList<Nodo> separator(String program) {
-        String[] programa= program.split(" ");
-        ArrayList<String> tokensList= new ArrayList(Arrays.asList(programa));
-        return parseProgram(tokensList);
+    /** separa el programa lisp y lo guarda en una lista */
+    public static ArrayList<Nodo> separator(String p) {
+        String[] programa= p.split(" ");
+        ArrayList<String> tokens= new ArrayList(Arrays.asList(programa));
+        return parseProgram(tokens);
     }
 
 
     /**
-     * Parse a lisp program
-     * @param separatedProgram
+     * Pasar a lisp
+     * @param programa
      * @return
      */
-    public static ArrayList<Nodo> parseProgram(ArrayList<String> separatedProgram) {
-        ArrayList<Nodo> parsedProgram = new ArrayList<>();
-        while(!separatedProgram.isEmpty()) {
-            Nodo node;
-            String t = separatedProgram.remove(0);
+    public static ArrayList<Nodo> parseProgram(ArrayList<String> programa) {
+        ArrayList<Nodo> p = new ArrayList<>();
+        while(!programa.isEmpty()) {
+            Nodo nodo;
+            String t = programa.remove(0);
             if (t.equals("(")) {
-                node = new Nodo(parseProgram(separatedProgram));
-                parsedProgram.add(node);
+                nodo = new Nodo(parseProgram(programa));
+                p.add(nodo);
             } else if (t.equals(")")) {
-                return parsedProgram;
+                return p;
             } else if (isNumber(t)) {
-                parsedProgram.add(new Nodo(Float.parseFloat(t)));
+                p.add(new Nodo(Float.parseFloat(t)));
             } else {
-                parsedProgram.add(new Nodo(t));
+                p.add(new Nodo(t));
             }
         }
-        return parsedProgram;
+        return p;
     }
 
-    private static boolean isNumber(String value) {
+    private static boolean isNumber(String numero) {
         try {
-            Double number = Double.parseDouble(value);
+            Double n = Double.parseDouble(numero);
             return true;
         } catch (Exception e) {
             return  false;

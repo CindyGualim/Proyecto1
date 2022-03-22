@@ -1,29 +1,52 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
+
+ /* imports */
 import java.util.ArrayList;
 
+/*la clase nodo  */
 public class Nodo<E> {
+
     protected float dataF;
     protected String dataS;
     protected ArrayList<Nodo> lista;
     protected int tipo;
-    protected E data;   // Store the node data
+    protected E data;   
 
 
 
-    protected Nodo<E> nextElement; // Store a reference to the next element
+    protected Nodo<E> nextElement; 
 
+    /**
+     * nodo en tipo float
+     * @param v
+     */
     public Nodo(float v)
     {
         dataF = v;
         tipo = 1;
     }
 
+    /**
+     * nodo en tipo string
+     * @param v
+     */
     public Nodo(String v)
     {
         dataS =v;
         tipo = 2;
     }
 
+    /**
+     * nodo en lista
+     * @param v
+     */
     public Nodo(ArrayList<Nodo> v)
     {
         lista = v;
@@ -32,7 +55,7 @@ public class Nodo<E> {
 
 
     /**
-     * Create a node with all the params.
+     * Crear nodo
      * @param data
      * @param nextElement
      */
@@ -42,7 +65,7 @@ public class Nodo<E> {
     }
 
     /**
-     * Create a Node with only the data (nextElement is null).
+     * crear nodo con solo la data
      * @param data
      */
     public Nodo(E data) {
@@ -50,21 +73,23 @@ public class Nodo<E> {
     }
 
     /**
-     * Get the next Node
+     * sigueinte nodo
      * @return
      */
-    public Nodo<E> next() {return this.nextElement;}
-
-    /**
-     * Set the next node
-     * @param next
-     */
-    public void setNext(Nodo<E> next) {
-        this.nextElement = next;
+    public Nodo<E> next() {
+        return this.nextElement;
     }
 
     /**
-     * Get the current value for the data
+     * next nodo
+     * @param next
+     */
+    public void setNext(Nodo<E> prox) {
+        this.nextElement = prox;
+    }
+
+    /**
+     * valor actual
      * @return
      */
     public E value() {
@@ -72,11 +97,11 @@ public class Nodo<E> {
     }
 
     /**
-     * Set the new value for data
+     * set el valor
      * @param value
      */
-    public void setValue(E value) {
-        this.data = value;
+    public void setValue(E valor) {
+        this.data = valor;
     }
 
 }

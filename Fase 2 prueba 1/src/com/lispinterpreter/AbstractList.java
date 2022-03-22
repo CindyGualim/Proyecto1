@@ -1,9 +1,17 @@
 package com.lispinterpreter;
+/**
+ * Universidad del Valle de Guatemala 
+ * Algoritmos y estructuras de datos
+ *  @author Diana Díaz 21066
+ *  @author Andres Chivalan 
+ *  @author Cindy Gualim
+ */
 
+/*Clase abstracta de lista */
 public abstract class AbstractList<E> implements List<E> {
 
     /**
-     * Defines if the list is empty
+     * verifica si está vacia 
      * @return
      */
     @Override
