@@ -3,7 +3,6 @@
  * Algoritmos y estructuras de datos 
  * @author Diana Díaz 21066
  * @author Cindy Gualim 21226
- * @author Andres Chivalan 21534
  * @version 1.0 22/03/2022
  */
 
