@@ -1,4 +1,13 @@
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y estructuras de datos 
+ * @author Diana Díaz 21066
+ * @author Cindy Gualim 21226
+ * @author Andres Chivalan 21534
+ * @version 1.0 22/03/2022
+ */
 
+ //imports
 import java.io.BufferedReader;
 import java.io.File;
 import java.io.FileReader;
@@ -11,18 +20,28 @@ import java.util.stream.Collectors;
 /**
  * @author Cindy Gualim
  */
+//esta es la clase donde se maneja el file y el guardado de datos
 public class DataManager {
 
     String PATH_FILE = "";
 
+    //constructor
     public DataManager() {
 
     }
 
+    /**
+     * set el path
+     * @param path
+     */
     public void setPathFile(String path) {
         PATH_FILE = path;
     }
 
+    /**
+     * get lo que esta en el file
+     * @return datos del file
+     */
     public String getDataFile() {
         BufferedReader reader;
         String linea, datos = "";
@@ -30,22 +49,31 @@ public class DataManager {
         try {
             reader = new BufferedReader(new FileReader(PATH_FILE));
 
-            while ((linea = reader.readLine()) != null) {
+            while ((linea = reader.readLine()) != null) { //mientras exista otra linea
                 datos += linea + "\n";
             }
             reader.close();
 
-        } catch (Exception e) {
+        } catch (Exception e) { //manejo de errores
             e.printStackTrace();
         }
 
         return datos;
     }
 
+    /**
+     * get del verificador que existe
+     * @return si existe
+     */
     public boolean getExists() {
         return (new File(PATH_FILE)).exists();
     }
 
+    /**
+     * get tokens
+     * @param delimitador
+     * @return las colecciones
+     */
     public List getTokens(String delimitador) {
 
         return Collections
@@ -57,6 +85,12 @@ public class DataManager {
 
     }
 
+    /**
+     * get tokens
+     * @param delimitador
+     * @param value
+     * @return la lista
+     */
     public List getTokens(String delimitador, String value) {
         String tempValue = value.replaceAll("\\,", " ").replaceAll("\\[", "(").replaceAll("\\]", ")");
         List tempList = Collections
@@ -69,6 +103,11 @@ public class DataManager {
 
     }
 
+    /**
+     * get atom
+     * @param token
+     * @return token
+     */
     private Object getAtom(String token) {
         try {
             // Si es entero, retornamos el valor en tipo int
@@ -89,7 +128,13 @@ public class DataManager {
         }
     }
 
-    // obtener el parseo en forma de arreglos del lenguaje LISP
+    
+    /**
+     * obtener el parseo en forma de arreglos del lenguaje LISP
+     * @param instruccion
+     * @return lista
+     * @throws Exception
+     */
 
     public Object getInstruccion(List instruccion) throws Exception {
 
@@ -131,7 +176,10 @@ public class DataManager {
 
     }
 
-    //
+    /**
+     * get lista
+     * @return lista
+     */
     public List<Object> getListInstruccion() {
         String tempInstruction = "";
         char[] caracteres = (getDataFile().replace("\n", "") + "\n").toCharArray();

@@ -1,17 +1,36 @@
-import java.io.*;
+/**
+ * Universidad del Valle de Guatemala
+ * Algoritmos y estructuras de datos 
+ * @author Diana Díaz 21066
+ * @author Cindy Gualim 21226
+ * @author Andres Chivalan 21534
+ * @version 1.0 22/03/2022
+ */
 
+ //imports
+import java.io.*;
 import java.util.*;
 
+//es la clase que maneja las entradas del teclado
 public class Keyboard
 
 {
-   // Error Handling Section
+   
+   /**
+    * Manejo de errores
+    */
 
    private static boolean printErrors = true;
 
+   /**
+    * contador
+    */
    private static int errorCount = 0;
 
-   // Returns the current error count
+   /**
+    * contador de errores 
+    * @return errorcount
+    */
 
    public static int getErrorCount()
 
@@ -20,7 +39,11 @@ public class Keyboard
       return errorCount;
 
    }
-   // Resets the current error count to zero.
+   
+   /**
+    *  reset a 0 
+    * @param count
+    */
 
    public static void resetErrorCount(int count)
 
@@ -30,6 +53,10 @@ public class Keyboard
 
    }
 
+   /**
+    * Imprimir los errores
+    * @return errores
+    */
    public static boolean getPrintErrors()
 
    {
@@ -38,6 +65,10 @@ public class Keyboard
 
    }
 
+   /**
+    *  el set para imprimir los errores
+    * @param flag
+    */
    public static void setPrintErrors(boolean flag)
 
    {
@@ -46,6 +77,10 @@ public class Keyboard
 
    }
 
+   /**
+    * errores
+    * @param str
+    */
    private static void error(String str)
 
    {
@@ -58,6 +93,9 @@ public class Keyboard
 
    }
 
+   /**
+    * 
+    */
    private static String current_token = null;
 
    private static StringTokenizer reader;
@@ -66,6 +104,10 @@ public class Keyboard
 
    (new InputStreamReader(System.in));
 
+   /**
+    * 
+    * @return token si hay 
+    */
    private static String getNextToken()
 
    {
@@ -74,6 +116,11 @@ public class Keyboard
 
    }
 
+   /**
+    * 
+    * @param skip
+    * @return token
+    */
    private static String getNextToken(boolean skip)
 
    {
@@ -98,6 +145,11 @@ public class Keyboard
 
    }
 
+   /**
+    * saber cual es el siguiente token
+    * @param skip
+    * @return token
+    */
    private static String getNextInputToken(boolean skip)
 
    {
@@ -122,9 +174,9 @@ public class Keyboard
 
          {
 
-            while (!reader.hasMoreTokens())
+            while (!reader.hasMoreTokens()) //mientras sigan existiendo tokens
 
-               reader = new StringTokenizer
+               reader = new StringTokenizer //se lee el token
 
                (in.readLine(), delimiters, true);
 
@@ -133,8 +185,8 @@ public class Keyboard
          }
 
       }
-
-      catch (Exception exception)
+  
+      catch (Exception exception) //manejo de errores
 
       {
 
@@ -146,6 +198,10 @@ public class Keyboard
 
    }
 
+   /**
+    * cuando se llega al final de la linea
+    * @return si hay mas tokens 
+    */
    public static boolean endOfLine()
 
    {
@@ -154,6 +210,11 @@ public class Keyboard
 
    }
 
+
+   /**
+    * leer el string
+    * @return el string
+    */
    public static String readString()
 
    {
@@ -166,7 +227,7 @@ public class Keyboard
 
          str = getNextToken(false);
 
-         while (!endOfLine())
+         while (!endOfLine()) //mientras no sea el fin de la linea
 
          {
 
@@ -176,7 +237,7 @@ public class Keyboard
 
       }
 
-      catch (Exception exception)
+      catch (Exception exception) //manejo de errores
 
       {
 
@@ -190,6 +251,10 @@ public class Keyboard
 
    }
 
+   /**
+    * leer palabras
+    * @return token
+    */
    public static String readWord()
 
    {
@@ -218,6 +283,10 @@ public class Keyboard
 
    }
 
+   /**
+    * 
+    * @return true/false
+    */
    public static boolean readBoolean()
 
    {
@@ -250,7 +319,7 @@ public class Keyboard
 
       }
 
-      catch (Exception exception)
+      catch (Exception exception) //manejo de errores
 
       {
 
@@ -264,6 +333,10 @@ public class Keyboard
 
    }
 
+   /**
+    * leer chars 
+    * @return valor 
+    */
    public static char readChar()
 
    {
@@ -289,8 +362,8 @@ public class Keyboard
          value = token.charAt(0);
 
       }
-
-      catch (Exception exception)
+ 
+      catch (Exception exception) //manejo de errores
 
       {
 
@@ -304,6 +377,10 @@ public class Keyboard
 
    }
 
+   /**
+    * se lee los números
+    * @return valor 
+    */
    public static int readInt()
 
    {
@@ -334,6 +411,10 @@ public class Keyboard
 
    }
 
+   /**
+    *  se lee si el tipo es long
+    * @return valor 
+    */
    public static long readLong()
 
    {
@@ -364,6 +445,10 @@ public class Keyboard
 
    }
 
+   /**
+    * si el tipo es float
+    * @return valor 
+    */
    public static float readFloat()
 
    {
@@ -394,6 +479,10 @@ public class Keyboard
 
    }
 
+   /**
+    * se lee si el tipo es double
+    * @return valor
+    */
    public static double readDouble()
 
    {
